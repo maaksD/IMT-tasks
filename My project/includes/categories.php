@@ -43,7 +43,7 @@ makeTree($full_arr, $parent_arr);
 function printTree($data_arr){
 	echo "<ul>";
 		foreach ($data_arr as $key => $value) {
-			echo "<li>".$value->name."</li>";
+			echo "<li><a href='#'>".$value->name."</a></li>";
 				if($value->subcategories){
 					printTree($value->subcategories);
 				}
