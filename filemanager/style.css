@@ -1,0 +1,30 @@
+div.left{
+	text-align: center;
+	width: 40%;
+	height: 500px;
+	border: 1px solid grey;
+	float: left;
+	background: lightgrey;
+	overflow: auto;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	margin: 0 20px 0 10%;
+}
+div.right{
+	text-align: center;
+	width: 40%;
+	height: 500px;
+	display:inline-block;
+	border: 1px solid grey;
+	background: lightgrey;
+	overflow: auto;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+div.right img {
+	display:block;
+	float: left;
+	margin: 10px 20px;
+}
+.res{
+	text-align: left;
+	margin: 50px 10px;
+}
