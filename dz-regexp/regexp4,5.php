@@ -1,10 +1,6 @@
-<form name="link" method="POST">
-		<label>Введите ссылку </label>
-		<input type="text" name="link" size="50">
-		<input type="submit" value="Go">
-	</form>
-
 <?php
+header('Content-Type: text/html; charset=utf-8');
+
 function translit($string) {
     $converter = array(
         'а' => 'a',   'б' => 'b',   'в' => 'v',
@@ -33,17 +29,33 @@ function translit($string) {
     return strtr($string, $converter);
 }
 
+?>
 
+<form name="link" method="POST">
+	<label>Введите ссылку </label>
+	<input type="text" name="link" size="50">
+	<input type="submit" value="Go">
+</form>
+
+
+<?php
 $user_link = strtolower(translit($_POST['link']));
 // echo $user_link;
 
-$pattern = array('/\//', '/\-/');
+// $pattern = '/[^\/*\-*](\w+.*\/*\-*)+[^\/*\-*]/';
 
+// preg_match($pattern ,$user_link, $match);
+//     echo $user_link;
+//     echo "<pre>";
+//     echo $match[0];
 
-preg_match('/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',$user_link, $match);
-		
-		echo "<pre>";
-			echo $match[0];
-	
+$pattern = array('/^[\/\-]+/','/[\/\-]+$/');
+
+$res = preg_replace($pattern, '', $user_link);
+
+echo "<pre>";
+print_r($res);
+    
 
 ?>
+
